@@ -22,7 +22,7 @@ class VehiclePage extends StatelessWidget {
       ),
       body: Container(
         color: backgroundColor,
-        child: const Text('BodyHolder'),
+        child: const VehiclePage(),
       ),
     );
   }
