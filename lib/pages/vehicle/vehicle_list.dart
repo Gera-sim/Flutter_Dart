@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:untitled/design/dimensions.dart';
 import '../../design/colors.dart';
-import '../../design/dimensions.dart';
 
 class VehicleList extends StatelessWidget {
   const VehicleList({super.key});
