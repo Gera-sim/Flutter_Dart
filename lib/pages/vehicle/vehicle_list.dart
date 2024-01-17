@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
-import 'package:untitled/design/dimensions.dart';
-import 'package:untitled/pages/vehicle/vehicle_item.dart';
-import '../../design/colors.dart';
+import 'package:flutter/material.dart';
+import '../../design/dimensions.dart';
+import '../../design/widgets/accent_button.dart';
+import 'vehicle_item.dart';
 
 class VehicleList extends StatelessWidget {
   const VehicleList({super.key});
@@ -26,6 +26,6 @@ class VehicleList extends StatelessWidget {
   }
 
   Widget _updateButton() {
-    return Container();
+    return AccentButton(title: 'Update', onTap: () {});
   }
 }
