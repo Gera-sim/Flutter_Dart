@@ -8,14 +8,23 @@ class VehicleList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: <Widget>[_list(), _updateButton()]);
+    return Stack(children: <Widget>[
+      _list(context), Align(alignment: Alignment.bottomCenter, child: _updateButton())
+    ]);
   }
 
-  Widget _list() {
+  Widget _list(BuildContext context) {
+    final safeBottomPadding =
+        MediaQuery.of(context).padding.bottom; //получаем расстояние
+    final bottomPadding = (safeBottomPadding + height8) * 2 + height40;
+    
     return ListView.separated(
       itemCount: 15,
-      padding: const EdgeInsets.only(
-          left: padding16, top: padding16, right: padding16),
+      padding: EdgeInsets.only(
+          left: padding16,
+          top: padding16,
+          right: padding16,
+          bottom: bottomPadding),
       separatorBuilder: (BuildContext context, int index) {
         return const SizedBox(height: height8);
       },
@@ -26,6 +35,12 @@ class VehicleList extends StatelessWidget {
   }
 
   Widget _updateButton() {
-    return AccentButton(title: 'Update', onTap: () {});
+    //safe area сдвигает виджет на безопасное расстояние
+    return SafeArea(
+        child: Padding(
+      padding: const EdgeInsets.only(
+          left: padding16, right: padding16, bottom: padding8),
+      child: AccentButton(title: 'Update', onTap: () {}),
+    ));
   }
 }
