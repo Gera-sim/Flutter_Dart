@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../design/dialog/error_dialog.dart';
 import '../../design/dimensions.dart';
 import '../../design/widgets/accent_button.dart';
 import 'vehicle_item.dart';
@@ -9,7 +10,7 @@ class VehicleList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(children: <Widget>[
-      _list(context), Align(alignment: Alignment.bottomCenter, child: _updateButton())
+      _list(context), Align(alignment: Alignment.bottomCenter, child: _updateButton(context))
     ]);
   }
 
@@ -17,6 +18,7 @@ class VehicleList extends StatelessWidget {
     final safeBottomPadding =
         MediaQuery.of(context).padding.bottom; //получаем расстояние
     final bottomPadding = (safeBottomPadding + height8) * 2 + height40;
+    //реконструируем расстояние safe bottom + отступы (2 шт, поэтому *2) + высота кнопки (40)
     
     return ListView.separated(
       itemCount: 15,
@@ -34,13 +36,25 @@ class VehicleList extends StatelessWidget {
     );
   }
 
-  Widget _updateButton() {
+  Widget _updateButton(BuildContext context) {
     //safe area сдвигает виджет на безопасное расстояние
     return SafeArea(
         child: Padding(
       padding: const EdgeInsets.only(
           left: padding16, right: padding16, bottom: padding8),
-      child: AccentButton(title: 'Update', onTap: () {}),
+      child: AccentButton(title: 'Update', onTap: () {
+        _showErrorDialog(context);
+      }),
     ));
   }
+
+  void _showErrorDialog (BuildContext context){
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+           return const ErrorDialog(
+          description: 'Server is unavailable, Please try again later.');
+  });
+  }
+
 }
