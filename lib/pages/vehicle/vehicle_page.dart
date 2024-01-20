@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/pages/vehicle/vehicle_list.dart';
-
+import '../../design/styles.dart';
 import '../../design/colors.dart';
 import '../../design/dimensions.dart';
+import 'vehicle_list.dart';
 
 class VehiclePage extends StatelessWidget {
   const VehiclePage({super.key});
@@ -12,11 +12,7 @@ class VehiclePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dispatcher by Gerhard.com',
-            style: TextStyle(
-              color: primaryColor,
-              fontSize: fontSize16,
-              fontWeight: FontWeight.w500,
-            )),
+            style: primaryTextStyle),
         centerTitle: true,
         elevation: elevation0, // shadow
         backgroundColor: surfaceColor,
