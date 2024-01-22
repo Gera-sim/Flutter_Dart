@@ -3,14 +3,10 @@ import 'dimensions.dart';
 import 'colors.dart';
 
 const TextStyle hint2TextStyle = TextStyle(
-    color: secondaryVariantColor,
-    fontSize: fontSize12,
-    fontWeight: FontWeight.w400);
+    color: secondaryVariantColor, fontSize: fontSize12, fontWeight: FontWeight.w400);
 
 const TextStyle hint1TextStyle = TextStyle(
-    color: secondaryVariantColor,
-    fontSize: fontSize14,
-    fontWeight: FontWeight.w400);
+    color: secondaryVariantColor, fontSize: fontSize14, fontWeight: FontWeight.w400);
 
 const TextStyle accentButtonTextStyle = TextStyle(
     color: surfaceColor, fontSize: fontSize14, fontWeight: FontWeight.w600);
