@@ -6,6 +6,7 @@ const double height20 = 20;
 const double height40 = 40;
 const double height64 = 64;
 
+const double width16 = 16;
 const double width200 = 200;
 
 const double fontSize12 = 12;

@@ -1,21 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/pages/driver/driver_item.dart';
 import '../../design/utils/size_utils.dart';
 import '../../design/widgets/accent_button.dart';
-import '../../design/colors.dart';
 import '../../design/dimensions.dart';
 
-class DriverList extends StatelessWidget {
+// class DriverList extends StatelessWidget {
+
+class DriverList extends StatefulWidget {
+  // StatefulWidget уже содержит контекст, поэтому его теперь не нужно передавать
   const DriverList({super.key});
+
+  @override
+  State<DriverList> createState() => _DriverListState();
+}
+
+class _DriverListState extends State<DriverList> {
+  int? _selectedDriverIndex;
 
   @override
   Widget build(BuildContext context) {
     return Stack(children: <Widget>[
-      _list(context),
-      Align(alignment: Alignment.bottomCenter, child: _saveButton(context))
+      _list(),
+      Align(alignment: Alignment.bottomCenter, child: _saveButton())
     ]);
   }
 
-  Widget _list(BuildContext context) {
+  Widget _list() {
     return ListView.separated(
       itemCount: 15,
       padding: EdgeInsets.only(
@@ -27,12 +37,21 @@ class DriverList extends StatelessWidget {
         return const SizedBox(height: height8);
       },
       itemBuilder: (BuildContext context, int index) {
-        return Container(color: surfaceColor, height: height64);
+        final bool isSelected =
+            _selectedDriverIndex == index; // сравнение сохраненного с текущим
+        return DriverItem(
+            driverName: 'Paul',
+            isSelected: isSelected,
+            onTap: () {
+              setState(() { //пересоздание виджета
+                _selectedDriverIndex = index;
+              });
+            });
       },
     );
   }
 
-  Widget _saveButton(BuildContext context) {
+  Widget _saveButton() {
     //safe area сдвигает виджет на безопасное расстояние
     return SafeArea(
         child: Padding(
