@@ -7,16 +7,16 @@ import '../../design/dimensions.dart';
 
 // class DriverList extends StatelessWidget {
 
-class DriverList extends StatefulWidget {
+class VehicleStateList extends StatefulWidget {
   // StatefulWidget уже содержит контекст, поэтому его теперь не нужно передавать
-  const DriverList({super.key});
+  const VehicleStateList({super.key});
 
   @override
-  State<DriverList> createState() => _DriverListState();
+  State<VehicleStateList> createState() => _VehicleStateListState();
 }
 
-class _DriverListState extends State<DriverList> {
-  int? _selectedDriverIndex;
+class _VehicleStateListState extends State<VehicleStateList> {
+  int? _selectedStateIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -39,16 +39,16 @@ class _DriverListState extends State<DriverList> {
       },
       itemBuilder: (BuildContext context, int index) {
         final bool isSelected =
-            _selectedDriverIndex == index; // сравнение сохраненного с текущим
+            _selectedStateIndex == index; // сравнение сохраненного с текущим
         return SelectableItem(
-            image: accountCircleImage,
-            leftPadding: padding8,
-            title: 'Paul',
+            image: statePickupImage,
+            leftPadding: padding16,
+            title: 'Pickup',
             isSelected: isSelected,
             onTap: () {
               setState(() {
                 //пересоздание виджета
-                _selectedDriverIndex = index;
+                _selectedStateIndex = index;
               });
             });
       },

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'driver_list.dart';
+import 'vehicle_state_list.dart';
 import '../../design/images.dart';
 import '../../design/styles.dart';
 import '../../design/colors.dart';
 import '../../design/dimensions.dart';
 
-
-class DriverPage extends StatelessWidget {
-  const DriverPage({super.key});
+class VehicleStatePage extends StatelessWidget {
+  const VehicleStatePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Select driver',
+        title: const Text('Update vehicle state',
             style: primaryTextStyle),
         centerTitle: true,
         elevation: elevation0, // shadow
@@ -24,7 +23,7 @@ class DriverPage extends StatelessWidget {
       ),
       body: Container(
         color: backgroundColor,
-        child: const DriverList(),
+        child: const VehicleStateList()
       ),
     );
   }
